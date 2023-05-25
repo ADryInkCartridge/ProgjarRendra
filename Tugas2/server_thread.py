@@ -20,7 +20,7 @@ class ProcessTheClient(threading.Thread):
 				print("data dari client: ", decode)
 				if decode == 'TIME\r\n':
 					now = datetime.now()
-					dt_string = now.strftime("%H:%M:%S") + "\r\n"
+					dt_string = 'JAM ' + now.strftime("%H:%M:%S") + "\r\n"
 					self.connection.sendall(dt_string.encode())
 			else:
 				break
