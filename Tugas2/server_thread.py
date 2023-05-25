@@ -34,7 +34,8 @@ class Server(threading.Thread):
 
 	def run(self):
 		self.my_socket.bind(('0.0.0.0',45000))
-		self.my_socket.listen(10)
+		self.my_socket.listen(1)
+		logging.warning(f"opening socket {self.my_socket}")
 		while True:
 			self.connection, self.client_address = self.my_socket.accept()
 			logging.warning(f"connection from {self.client_address}")
