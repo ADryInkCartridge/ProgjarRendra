@@ -2,6 +2,7 @@ import sys
 import socket
 import logging
 import threading
+import timeit
 
 
 def kirim_data(nama="kosong"):
@@ -34,9 +35,12 @@ def kirim_data(nama="kosong"):
 
 if __name__=='__main__':
     threads = []
-    for i in range(1000):
+    for i in range(50):
         t = threading.Thread(target=kirim_data, args=(i,))
         threads.append(t)
 
+    start = timeit.default_timer()
     for thr in threads:
         thr.start()
+    stop = timeit.default_timer()
+    print('Time: ', stop - start)
