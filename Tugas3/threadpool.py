@@ -26,7 +26,7 @@ def ProcessTheClient(connection,address):
 					if rcv=='TIME\r\n':
 						now = datetime.now()
 						dt_string = 'JAM ' + now.strftime("%H:%M:%S") + '\r\n'
-						connection.sendall(dt_string)
+						connection.sendall(dt_string.encode())
 						rcv=""
 						connection.close()
 						return

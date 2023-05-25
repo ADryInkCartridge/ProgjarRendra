@@ -29,7 +29,7 @@ class ProcessTheClient(multiprocessing.Process):
 					if rcv[-2:]=='\r\n':
 						now = datetime.now()
 						dt_string = 'JAM ' + now.strftime("%H:%M:%S") + '\r\n'
-						self.connection.sendall(dt_string)
+						self.connection.sendall(dt_string.encode())
 						rcv=""
 						self.connection.close()
 						return
