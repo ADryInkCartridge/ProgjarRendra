@@ -42,5 +42,7 @@ if __name__=='__main__':
     start = timeit.default_timer()
     for thr in threads:
         thr.start()
+    for thr in threads:
+        thr.join()
     stop = timeit.default_timer()
     print('Time: ', stop - start)
